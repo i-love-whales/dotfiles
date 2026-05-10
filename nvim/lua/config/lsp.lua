@@ -1,5 +1,4 @@
 return {
-	-- Fix Lua global variables warnings in NeoVim config
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
@@ -9,21 +8,25 @@ return {
 			},
 		},
 	},
-	-- Main LSP Config 🙏
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for Neovim
-			-- Mason must be loaded before its dependents so we need to set it up here.
-			-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
 			{ "mason-org/mason.nvim", opts = {} },
 			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-			-- Useful status updates for LSP.
+			{
+				"folke/lazydev.nvim",
+				ft = "lua", -- only load on lua files
+				opts = {
+					library = {
+						-- See the configuration section for more details
+						-- Load luvit types when the `vim.uv` word is found
+						{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+					},
+				},
+			},
 			{ "j-hui/fidget.nvim", opts = {} },
 
-			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
 		},
 		config = function()
@@ -35,12 +38,11 @@ return {
 					end
 
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinitions")
-					map("gr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
+					map("grr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
 					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
 					---@param method vim.lsp.protocol.Method
 					---@param bufnr? integer some lsp support methods only in specific files
@@ -55,8 +57,6 @@ return {
 				end,
 			})
 
-			-- Diagnostic Config
-			-- See :help vim.diagnostic.Opts
 			vim.diagnostic.config({
 				severity_sort = true,
 				float = { border = "rounded", source = "if_many" },
@@ -98,23 +98,15 @@ return {
 				bashls = {},
 
 				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
 				},
 			}
-
-			-- From this to the line 226 is my way to load language servers
-			-- And its just a spare way to do it
 
 			-- local servers = {
 			--     {

@@ -7,7 +7,11 @@ alt - 6 : open -a "GIMP.app"
 alt - 7 : open -a "DBeaver.app"
 alt - 8 : open -a "VLC.app"
 alt - 9 : open -a "Spotify.app"
+alt - t : open -a "Clock.app"
+alt - f : open -a "Finder.app"
 
 alt - y : open "https://www.youtube.com/playlist?list=WL"
 alt - o : open "https://chatgpt.com/"
+
+
 

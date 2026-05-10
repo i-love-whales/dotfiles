@@ -21,7 +21,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"+d')
 vim.keymap.set({ "n", "v" }, "<leader>cp", '"+p')
 
 -- No colon anymore
-vim.keymap.set("n", "<leader>w",  "<cmd>write<CR>")
+vim.keymap.set("n", "<leader>w", "<cmd>write<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>quit<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>restart<CR>")
 
@@ -42,4 +42,14 @@ vim.keymap.set("i", "<C-n>", "Bi\n$a i")
 vim.keymap.set("i", "<C-x>", "-  [ ]  ")
 vim.keymap.set("i", "<C-z>", "*  [ ]  ")
 
+-- Terminal commands
+vim.keymap.set("n", "<leader>t", "<cmd>ToggleTerminal<CR>") -- See plugin/terminal.lua
+vim.keymap.set("t", "<Esc><Esc>", "<C-n><C-\\>") -- Exit insert mode in terminal mode
 
+vim.keymap.set("n", "<leader>e", function() -- [E]xecute
+	vim.cmd("ToggleTerminal")
+    if not job_id then
+        print("global variable job_id is not defined")
+    end
+	vim.fn.chansend(job_id, { "./build\r\n" })
+end)

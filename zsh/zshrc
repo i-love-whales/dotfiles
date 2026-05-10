@@ -4,14 +4,12 @@ export EDITOR=nvim
 
 # Path 
 paths=(
-    /Users/dimaoleynik/.pyenv/shims  
-    /opt/local/libexec/gnubin  
-    /opt/local/bin  
-    /Users/dimaoleynik/.local/share/bob/nvim-bin
+    /Users/dimaoleynik/.pyenv/shims  # python version manager
+    /opt/local/libexec/gnubin  # true shell commands
     /opt/homebrew/bin
-    /opt/homebrew/sbin
-    /Users/dimaoleynik/.local/bin
-    /Users/dimaoleynik/.config/sowon
+    /Users/dimaoleynik/.local/bin  
+    /Users/dimaoleynik/.config/sowon  # Tsoding timer (sowon)
+    /Applications/Ghostty.app/Contents/MacOS/  # ghostty cli
 )
 
 addpath() {
@@ -54,7 +52,6 @@ bindkey '^L' forward-char
 bindkey '^H' backward-char
 bindkey '^X^E' edit-command-line
 bindkey '^I' expand-or-complete  # tab file completion
-
 
 
 
