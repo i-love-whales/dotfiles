@@ -1,7 +1,6 @@
 alt - return : open -a "Ghostty.app"
-alt - 1 : open -a "Firefox.app"
 alt - 2 : open -a "Telegram.app"
-alt - 3 : open -a "Discord.app"
+alt - 3 : open -a "Firefox.app"
 alt - 5 : open -a "OBS.app"
 alt - 6 : open -a "GIMP.app"
 alt - 7 : open -a "DBeaver.app"
@@ -9,9 +8,9 @@ alt - 8 : open -a "VLC.app"
 alt - 9 : open -a "Spotify.app"
 alt - t : open -a "Clock.app"
 alt - f : open -a "Finder.app"
-
-alt - y : open "https://www.youtube.com/playlist?list=WL"
-alt - o : open "https://chatgpt.com/"
+alt - d : open -a "Discord.app"
+alt - p : open -a "sioyek.app"
+alt - b : open -a "DBeaver.app"
 
 
 

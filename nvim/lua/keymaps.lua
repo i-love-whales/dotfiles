@@ -19,6 +19,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>y", '"+y')
 vim.keymap.set({ "n", "v" }, "<leader>d", '"+d')
 vim.keymap.set({ "n", "v" }, "<leader>cp", '"+p')
+vim.keymap.set({ "n", "v" }, "<leader>cP", '"+P')
 
 -- No colon anymore
 vim.keymap.set("n", "<leader>w", "<cmd>write<CR>")

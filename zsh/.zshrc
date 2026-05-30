@@ -1,0 +1,56 @@
+# Language & Editor
+export LANG=en_US.UTF-8
+export EDITOR=nvim
+
+# Path 
+paths=(
+    /Users/dimaoleynik/.pyenv/shims  # python version manager
+    /opt/local/libexec/gnubin  # true shell commands
+    /opt/homebrew/bin
+    /Users/dimaoleynik/.local/bin  
+    /Users/dimaoleynik/.config/sowon  # Tsoding timer (sowon)
+    /Applications/Ghostty.app/Contents/MacOS/  # ghostty cli
+)
+
+addpath() {
+    if [ -d "$1" ] && [[ ":$PATH:" != ":$1:" ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+
+for p in "${paths[@]}"; do
+    addpath $p
+done
+
+# Aliases
+source $HOME/.config/zsh/aliases.zsh
+
+export DL=~/Downloads
+
+# oh my zsh
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+
+plugins=(git z)
+
+source $ZSH/oh-my-zsh.sh
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# Bindings
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^F' forward-word
+bindkey '^B' backward-word
+bindkey '^L' forward-char
+bindkey '^H' backward-char
+bindkey '^X^E' edit-command-line
+bindkey '^I' expand-or-complete  # tab file completion
+
+
+

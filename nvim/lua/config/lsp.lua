@@ -40,20 +40,7 @@ return {
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]o to [D]efinitions")
 					map("grr", require("telescope.builtin").lsp_references, "[G]o to [R]eferences")
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
 					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-
-					---@param client vim.lsp.Client
-					---@param method vim.lsp.protocol.Method
-					---@param bufnr? integer some lsp support methods only in specific files
-					---@return boolean
-					local function client_supports_method(client, method, bufnr)
-						if vim.fn.has("nvim-0.11") == 1 then
-							return client:supports_method(method, bufnr)
-						else
-							return client.supports_method(method, { bufnr = bufnr })
-						end
-					end
 				end,
 			})
 

@@ -16,4 +16,11 @@ return {
 		keys = { { ",v", "<cmd>VenvSelect<cr>" } },
 		opts = {},
 	},
+	{
+		"nvim-mini/mini.nvim",
+		version = false,
+		config = function()
+			require("mini.surround").setup()
+		end,
+	},
 }

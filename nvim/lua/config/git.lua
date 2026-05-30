@@ -1,4 +1,11 @@
 return {
+	-- Adds git signs in the column line
+	{
+		"lewis6991/gitsigns.nvim",
+        config = function ()
+            vim.keymap.set("n", "<leader>gp", require("gitsigns").preview_hunk)
+        end
+	},
 	-- Git Diff
 	{
 		"axkirillov/unified.nvim",

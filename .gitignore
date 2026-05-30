@@ -1,3 +1,7 @@
-nvim/lazy-lock.json
 .DS_Store
-
+gtk-3.0/
+opencode/
+htop/
+lazy-lock.json
+.zsh_history
+.zcompdump*
